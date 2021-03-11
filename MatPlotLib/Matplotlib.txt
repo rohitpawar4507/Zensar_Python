@@ -1,0 +1,164 @@
+# Matplotlib
+-------------------------------------
+#simple line chart
+----------------------------
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+x=np.arange(1,11)
+y=2*x
+print(x)
+print(y)
+
+plt.plot(x,y)
+plt.show()
+
+----------------------
+
+#Plot a line graph:#Check whether interactive mode is ON (True) or OFF (False):
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+# Set the interactive mode to ON
+plt.ion()
+
+# Check the current status of interactive mode
+print(mpl.is_interactive())
+
+----------------------
+
+#Plot a line graph:
+In this example we had passed only one list of two points, which will be taken as y axis co-ordinates. For x axis it takes the default values in the range of 0 to 1, 2 being the length of the list [5, 15].
+
+import matplotlib.pyplot as plt
+
+#Plot a line graph
+plt.plot([5, 15])
+
+# Add labels and title
+plt.title("Interactive Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.show()
+
+---------------------------
+#Plot multiple lines graph with label:
+
+import matplotlib.pyplot as plt
+
+#Plot a line graph
+plt.plot([5, 15], label='Rice')
+plt.plot([3, 6], label='Oil')
+plt.plot([8.0010, 14.2], label='Wheat')
+plt.plot([1.95412, 6.98547, 5.41411, 5.99, 7.9999], label='Coffee')
+
+# Add labels and title
+plt.title("Interactive Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+plt.legend()
+plt.show()
+
+----------------------
+
+#Line graph with Marker:
+
+
+import matplotlib.pyplot as plt
+
+# Changing default values for parameters individually
+plt.rc('lines', linewidth=2, linestyle='-', marker='*')
+plt.rcParams['lines.markersize'] = 25
+plt.rcParams['font.size'] = '10.0'
+
+#Plot a line graph
+plt.plot([10, 20, 30, 40, 50])
+# Add labels and title
+plt.title("Interactive Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+plt.show()
+
+---------------
+# Save plot to image file:
+import matplotlib.pyplot as plt
+
+
+--------------------------------
+#Plot a line graph
+plt.grid(True, linewidth=0.5, color='#ff0000', linestyle='-')
+
+plt.plot([10, 20, 30, 40, 50])
+# Add labels and title
+plt.title("Interactive Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+plt.savefig("foo.png", bbox_inches='tight')
+------------------
+-----------------------------------------------
+#Bar chart with corresponding data value:
+Bar plots are graphs that use bars to measure various lists of data.
+
+import matplotlib.pyplot as plt
+
+year = [2001, 2002, 2003, 2004, 2005, 2006]
+unit = [50, 60, 75, 45, 70, 105]
+
+# Plot the bar graph
+plot = plt.bar(year, unit)
+
+# Add the data value on head of the bar
+for value in plot:
+    height = value.get_height()
+    plt.text(value.get_x() + value.get_width()/2.,
+             1.002*height,'%d' % int(height), ha='center', va='bottom')
+
+# Add labels and title
+plt.title("Bar Chart")
+plt.xlabel("Year")
+plt.ylabel("Unit")
+
+# Display the graph on the screen
+plt.show()
+
+----------------
+
+#Draw a scatter plot:
+import matplotlib.pyplot as plt
+
+x1 = [214, 5, 91, 81, 122, 16, 218, 22]
+x2 = [12, 125, 149, 198, 22, 26, 28, 32]
+
+plt.scatter(x1, x2)
+
+# Set X and Y axis labels
+plt.xlabel('Demand')
+plt.ylabel('Price')
+
+#Display the graph
+plt.show()
+
+--------------
+#Plot a pie chart:
+
+import matplotlib.pyplot as plt
+
+
+labels = ['India', 'Canada', 'Japan', 'Australia', 'Russia']
+sizes = [31, 19, 15, 14, 21]  # Add upto 100%
+
+# Plot the pie chart
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+
+# Equal aspect ratio ensures that pie is drawn as a circle.
+plt.axis('equal')
+
+# Display the graph onto the screen
+plt.show()
+
+-----------------------
